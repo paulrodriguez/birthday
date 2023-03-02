@@ -2,6 +2,68 @@ $(window).load(function(){
 	$('.loading').fadeOut('fast');
 	$('.container').fadeIn('fast');
 });
+
+function showLights(callback)
+{
+	$('#bulb_yellow').addClass('bulb-glow-yellow');
+	$('#bulb_red').addClass('bulb-glow-red');
+	$('#bulb_blue').addClass('bulb-glow-blue');
+	$('#bulb_green').addClass('bulb-glow-green');
+	$('#bulb_pink').addClass('bulb-glow-pink');
+	$('#bulb_orange').addClass('bulb-glow-orange');
+	$('body').addClass('peach');
+
+	callback.call(null);
+	// setTimeout(callback, 8000);
+	// $(elem).fadeOut('slow').delay(5000).promise().done(function(){
+	// 	$('#play').fadeIn('slow');
+	// });
+}
+
+function lightGlow(callback)
+{
+	$('#bulb_yellow').addClass('bulb-glow-yellow-after');
+	$('#bulb_red').addClass('bulb-glow-red-after');
+	$('#bulb_blue').addClass('bulb-glow-blue-after');
+	$('#bulb_green').addClass('bulb-glow-green-after');
+	$('#bulb_pink').addClass('bulb-glow-pink-after');
+	$('#bulb_orange').addClass('bulb-glow-orange-after');
+	$('body').css('backgroud-color','#FFF');
+	$('body').addClass('peach-after');
+
+	callback.call(null);
+	// setTimeout(callback, 3000);
+}
+
+var songs =  [
+	"audio/LAS MAÑANITAS - Vicente Fernández.mp3",
+	"audio/Las Mañanitas Mexicanas.mp3",
+	"audio/HAPPY BIRTHDAY  CON MARIACHI.mp3",
+	"audio/Feliz Cumpleaños - Felicidades - Mariachi Azteca - Letra Subtitulado en Español.mp3",
+	"audio/En Tu Dia  Mariachi Tecalitlán.mp3",
+	"audio/Cumpleaños.mp3",
+	"audio/En Tu Dia.mp3",
+	"audio/Brindo Por Tu Cumpleaños.mp3",
+	"audio/Banda Machos - Las Mañanitas.mp3"
+];
+
+function playSong(songs, idx)
+{
+	idx = idx%songs.length;
+
+	var song = new Audio(songs[idx]);
+
+	song.play();
+
+	song.addEventListener("canplaythrough", (event) => {
+	  song.play();
+	});
+
+	song.addEventListener('ended', function (event) {
+		playSong(songs, idx + 1)
+	});
+}
+
 $('document').ready(function(){
 		var vw;
 		$(window).resize(function(){
@@ -16,40 +78,58 @@ $('document').ready(function(){
 			$('#b77').animate({top:240, left: vw+250},500);
 		});
 
-	$('#turn_on').click(function(){
-		$('#bulb_yellow').addClass('bulb-glow-yellow');
-		$('#bulb_red').addClass('bulb-glow-red');
-		$('#bulb_blue').addClass('bulb-glow-blue');
-		$('#bulb_green').addClass('bulb-glow-green');
-		$('#bulb_pink').addClass('bulb-glow-pink');
-		$('#bulb_orange').addClass('bulb-glow-orange');
-		$('body').addClass('peach');
-		$(this).fadeOut('slow').delay(5000).promise().done(function(){
-			$('#play').fadeIn('slow');
+
+
+	$('#start').click(function() {
+
+		playSong(songs, 0);
+		showLights(function() {
+			setTimeout(function() {
+				lightGlow(
+					function() {
+						setTimeout(function() {
+							createBalloons(30);
+							setTimeout(function() {
+								$('.birthday-banner').addClass('birthday-banner-come');
+								/*setTimeout(function() {
+									$('.cake').fadeIn('slow');
+									setTimeout(function() {
+										$('.fuego').fadeIn('slow');
+									}, 4000);
+								}, 6000);*/
+							}, 6000);
+						}, 3000);
+				});
+			}, 8000);
 		});
-	});
-	$('#play').click(function(){
-		var audio = $('.song')[0];
-        audio.play();
-        $('#bulb_yellow').addClass('bulb-glow-yellow-after');
-		$('#bulb_red').addClass('bulb-glow-red-after');
-		$('#bulb_blue').addClass('bulb-glow-blue-after');
-		$('#bulb_green').addClass('bulb-glow-green-after');
-		$('#bulb_pink').addClass('bulb-glow-pink-after');
-		$('#bulb_orange').addClass('bulb-glow-orange-after');
-		$('body').css('backgroud-color','#FFF');
-		$('body').addClass('peach-after');
-		$(this).fadeOut('slow').delay(6000).promise().done(function(){
-			$('#bannar_coming').fadeIn('slow');
-		});
+
+		$('.cake').fadeIn('slow');
+		setTimeout(function() {
+			$('.fuego').fadeIn('slow');
+		}, 4000);
 	});
 
-	$('#bannar_coming').click(function(){
-		$('.bannar').addClass('bannar-come');
-		$(this).fadeOut('slow').delay(6000).promise().done(function(){
-			$('#balloons_flying').fadeIn('slow');
-		});
+	$('#play').click(function(){
+
+    //     $('#bulb_yellow').addClass('bulb-glow-yellow-after');
+		// $('#bulb_red').addClass('bulb-glow-red-after');
+		// $('#bulb_blue').addClass('bulb-glow-blue-after');
+		// $('#bulb_green').addClass('bulb-glow-green-after');
+		// $('#bulb_pink').addClass('bulb-glow-pink-after');
+		// $('#bulb_orange').addClass('bulb-glow-orange-after');
+		// $('body').css('backgroud-color','#FFF');
+		// $('body').addClass('peach-after');
+		// $(this).fadeOut('slow').delay(6000).promise().done(function(){
+		// 	$('#bannar_coming').fadeIn('slow');
+		// });
 	});
+
+	// $('#bannar_coming').click(function(){
+	// 	$('.bannar').addClass('bannar-come');
+	// 	$(this).fadeOut('slow').delay(6000).promise().done(function(){
+	// 		$('#balloons_flying').fadeIn('slow');
+	// 	});
+	// });
 
 	function loopOne() {
 		var randleft = 1000*Math.random();
@@ -102,15 +182,11 @@ $('document').ready(function(){
 		});
 	}
 
-	$('#balloons_flying').click(function(){
+	function flyingBalloons(callback)
+	{
 		$('.balloon-border').animate({top:-500},8000);
 		$('#b1,#b4,#b5,#b7').addClass('balloons-rotate-behaviour-one');
 		$('#b2,#b3,#b6').addClass('balloons-rotate-behaviour-two');
-		// $('#b3').addClass('balloons-rotate-behaviour-two');
-		// $('#b4').addClass('balloons-rotate-behaviour-one');
-		// $('#b5').addClass('balloons-rotate-behaviour-one');
-		// $('#b6').addClass('balloons-rotate-behaviour-two');
-		// $('#b7').addClass('balloons-rotate-behaviour-one');
 		loopOne();
 		loopTwo();
 		loopThree();
@@ -118,11 +194,17 @@ $('document').ready(function(){
 		loopFive();
 		loopSix();
 		loopSeven();
-		
+
+		callback.call(null);
+	}
+
+	$('#balloons_flying').click(function(){
+
+
 		$(this).fadeOut('slow').delay(5000).promise().done(function(){
 			$('#cake_fadein').fadeIn('slow');
 		});
-	});	
+	});
 
 	$('#cake_fadein').click(function(){
 		$('.cake').fadeIn('slow');
@@ -138,7 +220,7 @@ $('document').ready(function(){
 		});
 	});
 
-		
+
 	$('#wish_message').click(function(){
 		 vw = $(window).width()/2;
 
@@ -163,13 +245,13 @@ $('document').ready(function(){
 			$('#story').fadeIn('slow');
 		});
 	});
-	
+
 	$('#story').click(function(){
 		$(this).fadeOut('slow');
 		$('.cake').fadeOut('fast').promise().done(function(){
 			$('.message').fadeIn('slow');
 		});
-		
+
 		var i;
 
 		function msgLoop (i) {
@@ -180,22 +262,17 @@ $('document').ready(function(){
 				$("p:nth-child(49)").fadeOut('slow').promise().done(function () {
 					$('.cake').fadeIn('fast');
 				});
-				
+
 			}
 			else{
 				msgLoop(i);
-			}			
+			}
 
 		});
 			// body...
 		}
-		
+
 		msgLoop(0);
-		
+
 	});
 });
-
-
-
-
-//alert('hello');

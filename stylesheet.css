@@ -13,7 +13,7 @@ body {
 }
 .peach {
 	background-color: #FFDAB9;
-	
+
 }
 .peach-after {
 	-webkit-animation:peach_alive linear 8s infinite;
@@ -968,7 +968,7 @@ audio {
 	display: none;
 }
 
-.bannar {
+.birthday-banner {
 	max-width: 100%;
 	-webkit-transform:translate(0px,-500px);
 	-moz-transform:translate(0px,-500px);
@@ -977,19 +977,19 @@ audio {
 	transform:translate(0px,-500px);
 
 }
-.bannar-come {
-	-webkit-animation: bannar_come linear 6s;
+.birthday-banner-come {
+	-webkit-animation: birthday_banner_come linear 6s, 6s birthday_banner_rotate linear 6s forwards infinite;
 	-webkit-transform:translate(0px,0px);
-	-moz-animation: bannar_come linear 6s;
+	-moz-animation: birthday_banner_come linear 6s, 6s birthday_banner_rotate linear 6s forwards infinite;
 	-moz-transform:translate(0px,0px);
-	-o-animation: bannar_come linear 6s;
+	-o-animation: birthday_banner_come linear 6s, 6s birthday_banner_rotate linear 6s  forwards infinite;
 	-o-transform:translate(0px,0px);
-	-ms-animation: bannar_come linear 6s;
+	-ms-animation: birthday_banner_come linear 6s, 6s birthday_banner_rotate linear 6s forwards infinite;
 	-ms-transform:translate(0px,0px);
-	animation: bannar_come linear 6s;
+	animation: birthday_banner_come linear 6s, 6s birthday_banner_rotate linear 6s  forwards infinite;
 	transform:translate(0px,0px);
 }
-@-webkit-keyframes bannar_come {
+@-webkit-keyframes birthday_banner_come {
 	0%{
 		-webkit-transform:translate(0px,-1000px);
 	}
@@ -1006,7 +1006,7 @@ audio {
 		-webkit-transform:translate(0px,0px);
 	}
 }
-@-moz-keyframes bannar_come {
+@-moz-keyframes birthday_banner_come {
 	0%{
 		-moz-transform:translate(0px,-1000px);
 	}
@@ -1023,7 +1023,7 @@ audio {
 		-moz-transform:translate(0px,0px);
 	}
 }
-@-o-keyframes bannar_come {
+@-o-keyframes birthday_banner_come {
 	0%{
 		-o-transform:translate(0px,-1000px);
 	}
@@ -1040,7 +1040,7 @@ audio {
 		-o-transform:translate(0px,0px);
 	}
 }
-@-ms-keyframes bannar_come {
+@-ms-keyframes birthday_banner_come {
 	0%{
 		-ms-transform:translate(0px,-1000px);
 	}
@@ -1056,8 +1056,8 @@ audio {
 	100% {
 		-ms-transform:translate(0px,0px);
 	}
-}o
-@keyframes bannar_come {
+}
+@keyframes birthday_banner_come {
 	0%{
 		transform:translate(0px,-1000px);
 	}
@@ -1072,6 +1072,74 @@ audio {
 	}
 	100% {
 		transform:translate(0px,0px);
+	}
+}
+
+
+
+@-webkit-keyframes birthday_banner_rotate {
+	0%{
+	}
+	33%{
+		-webkit-transform:rotate(-10deg);
+	}
+	66% {
+		-webkit-transform:rotate(10deg);
+	}
+	100% {
+
+	}
+}
+@-moz-keyframes birthday_banner_rotate {
+	0%{
+
+	}
+	33%{
+		-moz-transform:rotate(-10deg);
+	}
+	66% {
+		-moz-transform:rotate(10deg);
+	}
+	100% {
+	}
+}
+@-o-keyframes birthday_banner_rotate {
+	0%{
+	}
+	33%{
+		-o-transform:rotate(-10deg);
+	}
+	66% {
+		-o-transform:rotate(10deg);
+	}
+	100% {
+	}
+}
+@-ms-keyframes birthday_banner_rotate {
+	0%{
+
+	}
+	33%{
+		-ms-transform:rotate(-10deg);
+	}
+	66% {
+		-ms-transform:rotate(10deg);
+	}
+	100% {
+	}
+}
+@keyframes birthday_banner_rotate {
+	0%{
+
+	}
+	33%{
+		transform:rotate(-10deg);
+	}
+	66% {
+		transform:rotate(10deg);
+	}
+	100% {
+
 	}
 }
 

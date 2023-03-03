@@ -1,0 +1,128 @@
+@box-color: rgb(118,167,96);
+@cover-color: rgb(100,158,197);
+@ribbon-color: rgb(239,203,71);
+@border-radius: 3px;
+@ribbon-node-width: 50px;
+@strip-width: 40px;
+@ribbon-part-size: 50px;
+
+
+
+.gift-box {
+    animation: wobble 6s linear infinite;
+
+  .gift--body {
+    position: relative;
+
+    .gift--bottom {
+      width: 200px;
+      height: 150px;
+      background: @box-color;
+      margin: 0 auto;
+      border-radius: 0px 0px @border-radius @border-radius;
+    }
+
+    .gift--cover {
+      width: 230px;
+      height: 40px;
+      background: @cover-color;
+      margin: 0 auto;
+      border-radius: @border-radius;
+    }
+
+    .gift--strip {
+      width: @strip-width;
+      height: 190px;
+      background: @ribbon-color;
+      position: absolute;
+      top: 0px;
+      left: 50%;
+      margin-left: @strip-width / 2 * -1;
+    }
+  }
+
+  .gift--ribbon-wrapper {
+    width: 140px;
+    height: 50px;
+    margin: 0 auto;
+    position: relative;
+
+    .gift--ribbon {
+      &.gift--ribbon__left {
+        float: left;
+      }
+
+      &.gift--ribbon__right {
+        float: right;
+        transform: rotateY(180deg);
+      }
+    }
+
+    .gift--ribbon-part {
+      border-radius: @border-radius;
+
+
+      &.part__big {
+        width: @ribbon-part-size * 1.3;
+        height: @ribbon-part-size;
+        background: @ribbon-color;
+        transform: scaleX(1) scaleY(1) RotateZ(45deg) translateX(18px) translateY(23px) skewX(8deg);
+        // +simple-transform(1, 45deg, 18px, 23px, 8deg);
+      }
+
+      &.part__small {
+        margin: -30px 8px 0px;
+        width: @ribbon-part-size * .9;
+        height: @ribbon-part-size * .9;
+        background: darken(@ribbon-color, 15);
+        transform: scaleX(1) scaleY(1) RotateZ(29deg) translateX(1px) translateY(16px) skewX(-25deg);
+        // +simple-transform(1, 29deg, 1px, 16px, -25deg);
+      }
+    }
+
+    .gift--ribbon-node__wrapper {
+
+      width: @ribbon-node-width;
+      height: 20px;
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      margin-left: @ribbon-node-width / 2 * -1;
+      z-index: 2;
+      overflow: hidden;
+
+      > div {
+        border-radius: 50%;
+        // +border-radius(50%);
+        margin-left: auto;
+        margin-right: auto;
+        position: absolute;
+        width: 100%;
+      }
+
+      .gift--ribbon-node__big {
+        height: 50px;
+        top: 3px;
+        background: @ribbon-color;
+      }
+
+      .gift--ribbon-node__small {
+        width: @ribbon-node-width * .8;
+        height: 30px;
+        top: 10px;
+        left: 50%;
+        margin-left: @ribbon-node-width * .8 / 2 * -1;
+        background: darken(@ribbon-color, 15);
+      }
+    }
+  }
+}
+
+@keyframes wobble {
+  from, to {
+    transform: rotateZ(30deg);
+  }
+  50% {
+    transform: rotateZ(-30deg);
+  }
+}

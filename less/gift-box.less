@@ -9,7 +9,15 @@
 
 
 .gift-box {
-    animation: wobble 6s linear infinite;
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  margin-top: -115px;
+  margin-left: -120px;
+
+    &.wobble {
+      animation: wobble 2s linear infinite;
+    }
 
   .gift--body {
     position: relative;

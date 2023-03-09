@@ -20,13 +20,13 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="stylesheet.css">
-	<link rel="stylesheet" type="text/css" href="loading.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.less">
+	<link rel="stylesheet" type="text/css" href="stylesheets/loading.less">
 	<link href='http://fonts.googleapis.com/css?family=Signika' rel='stylesheet' type='text/css'>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js" integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<!-- <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'> -->
-	<link rel="stylesheet/less" href="cake.less">
-	<link rel="stylesheet/less" href="balloons.less">
+	<link rel="stylesheet/less" href="stylesheets/cake.less">
+	<link rel="stylesheet/less" href="stylesheets/balloons.less">
 	<link rel="stylesheet/less" href="stylesheets/gift-box.less">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script>
 </head>
@@ -61,7 +61,7 @@
 
 
 	<div class="container">
-		<div class="gift-box">
+		<div class="gift-box wobble" id="gift-box">
 	  <div class="gift--ribbon-wrapper">
 	    <div class="gift--ribbon gift--ribbon__left">
 	      <div class="gift--ribbon-part part__big"></div>
@@ -108,7 +108,24 @@
 				<img src="banner.png" class="birthday-banner">
 			</div>
 		</div>
-		<div class="row cake-cover">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="cake">
+				    <div class="plate"></div>
+				    <div class="layer layer-bottom"></div>
+				    <div class="layer layer-middle"></div>
+				    <div class="layer layer-top"></div>
+				    <div class="icing"></div>
+				    <div class="drip drip1"></div>
+				    <div class="drip drip2"></div>
+				    <div class="drip drip3"></div>
+				    <div class="candle">
+				        <div class="flame"></div>
+				    </div>
+				</div>
+			</div>
+		</div>
+		<!--<div class="row cake-cover">
 			<div class="col-md-12 texr-center">
 				<div class="cake">
 				  <div class="velas">
@@ -122,7 +139,7 @@
 				  <div class="bizcocho"></div>
 				</div>
 			</div>
-		</div>
+		</div>-->
 		<div class="row message">
 			<div class="col-md-12">
 				<p>Today is...</p>
@@ -174,10 +191,10 @@
 				<p>a very happy birthday Xola Mathembisa</p>
 			</div>
 		</div>
-		<div class="navbar navbar-fixed-bottom">
+		<!--<div class="navbar navbar-fixed-bottom">
 			<div class="row">
 				<div class="col-md-6 text-center col-md-offset-3">
-					<button class="btn btn-primary" id="start">Enter</button>
+					<button class="btn btn-primary" id="start">Enter</button>-->
 					<!--<button class="btn btn-primary" id="play">Play Music</button>
 					<button class="btn btn-primary" id="bannar_coming">Let's Decorate</button>
 					<button class="btn btn-primary" id="balloons_flying">Fly With Balloons</button>
@@ -186,8 +203,8 @@
 					<button class="btn btn-primary" id="wish_message">Happy Birthday</button>
 					<button class="btn btn-primary" id="story">A mesage for you</button>-->
 					<!-- <button class="btn btn-primary" id="cake_cut">Lrt's Cut the Cake</button> -->
-				</div>
-			</div>
+				<!-- </div> -->
+			<!-- </div> -->
 			<!-- <div class="col-md-2">
 			</div>
 			<div class="col-md-2">
@@ -198,7 +215,7 @@
 			</div>
 			<div class="col-md-2">
 			</div> -->
-		</div>
+		<!-- </div> -->
 
 
 	</div>

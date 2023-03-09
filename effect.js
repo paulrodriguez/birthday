@@ -80,34 +80,32 @@ $('document').ready(function(){
 
 
 
-	$('#start').click(function() {
+	$('#gift-box').click(function() {
 
 		playSong(songs, 0);
-		showLights(function() {
-			setTimeout(function() {
-				lightGlow(
-					function() {
-						setTimeout(function() {
-							createBalloons(30);
+		$(this).removeClass('wobble');
+		$(this).fadeOut('slow', function() {
+			showLights(function() {
+				setTimeout(function() {
+					lightGlow(
+						function() {
 							setTimeout(function() {
-								$('.birthday-banner').addClass('birthday-banner-come');
-								/*setTimeout(function() {
-									$('.cake').fadeIn('slow');
+								createBalloons(30);
+								setTimeout(function() {
+									$('.birthday-banner').addClass('birthday-banner-come');
 									setTimeout(function() {
-										$('.fuego').fadeIn('slow');
-									}, 4000);
-								}, 6000);*/
-							}, 6000);
-						}, 3000);
-				});
-			}, 8000);
+										$('.cake').fadeIn('slow');
+										setTimeout(function() {
+											$('.fuego').fadeIn('slow');
+										}, 4000);
+									}, 6000);
+								}, 6000);
+							}, 3000);
+					});
+				}, 8000);
+			});
 		});
-
-		$('.cake').fadeIn('slow');
-		setTimeout(function() {
-			$('.fuego').fadeIn('slow');
-		}, 4000);
-	});
+});
 
 	$('#play').click(function(){
 

@@ -123,7 +123,7 @@ function imageShow(element, images, index) {
 				$(element).fadeOut('slow', function() {
 					imageShow(element, images, index+1);
 				});
-			}, 5000);
+			}, 7500);
 		});
 	}, 1500);
 }

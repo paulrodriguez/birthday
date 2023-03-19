@@ -396,6 +396,27 @@ body {
     display: none;
   }
 }
+@media (min-width: 992px) {
+  .d-lg-none {
+    display: none;
+  }
+}
+
+.image-show {
+  display: none;
+}
+#image-show-1 {
+  -webkit-transform: rotate(-20deg);
+          transform: rotate(-20deg);
+}
+#image-show-2 {
+  -webkit-transform: rotate(20deg);
+          transform: rotate(20deg);
+}
+#image-show-3 {
+  -webkit-transform: rotate(-20deg);
+          transform: rotate(-20deg);
+}
 
 /* Absolute Center CSS Spinner */
 .loading {

@@ -35,6 +35,33 @@ function lightGlow(callback)
 	// setTimeout(callback, 3000);
 }
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+
+window.images= [
+	'1Te8GREDa2EQo8zW6_QScEweOYqDVOCCM',
+	'1Tcwif3Jn2pqeFh7ohLJsXixjGI6LQKRA',
+	'1TcelqUOpFCZr3XJzPEa4_iWmiSJb_k7B',
+	'1TYafDFEOdpj9D6l51j2EckQ3yCyP33TK',
+	'1TYRKSC1uslgFcuBGWOvIsoEv5OIiR4O9',
+	'1TlDoIqZ-UTPOp3w-EplUxv-NdhbaEYn9',
+	'1U1HNL1lhAMx-JDQnASjPTJfMF_2G3nn_',
+	'1TqzIIQB3RWhxkuKegRvPt_w9n6UMJaM-',
+	'1UeCulv6Hl-6bJ57LrtPsHoHjSDePM9er',
+	'1UJTSunzfZy17u_iKL87r_lIRQi0rc0P6',
+	'1UPT-Qi8qTg1361Xm_vv-z3423O3tpmAi',
+	'1UleVG1-D9E1enm8vJnNKtAuaIjVZSFyG',
+	'19mgxwGaA0dR88cPxMIb-BHluStyCADMp',
+	'1woF_wxzU_PrfDl5xK4qhVOE0p3YQrHU4',
+	'1F2i_dbcQ-AWBr-5edbYefU86SCFe4BW8',
+	'18qU_KqITWelcn6pJNXrU5eeYOxlMhPkW',
+	'1xnEz19H3fSpUou0cjFxmlc4-_dTcueK1',
+	'1m9s9Pqp2Y4nL1O1OcgV1evtzkbps7fj0',
+	'1-6VcJaejHnbDVZPQ9Sg1kbs6UPA9DXUF'
+];
+
 var songs =  [
 	"audio/las-mananitas-vicente-fernandez.mp3",
 	"audio/las-mananitas-mexicanas.mp3",
@@ -62,6 +89,43 @@ function playSong(songs, idx)
 	song.addEventListener('ended', function (event) {
 		playSong(songs, idx + 1)
 	});
+}
+
+function shuffleArray(array) {
+	shuffled = array.slice();
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = shuffled[i];
+    shuffled[i] = shuffled[j];
+    shuffled[j] = temp;
+  }
+
+	return shuffled;
+}
+
+function imageShow(element, images, index) {
+	if (index >= images.length) {
+			images = shuffleArray(window.images);
+			index = 0;
+	}
+
+	var currImg = element.src;
+
+	var newImg = 'https://drive.google.com/uc?export=view&id=' + images[index];
+
+	element.src = newImg;
+
+	setTimeout(function() {
+		$(element).fadeIn('slow', function() {
+
+			setTimeout(function() {
+				$(element).fadeOut('slow', function() {
+					imageShow(element, images, index+1);
+				});
+			}, 5000);
+		});
+	}, 1500);
 }
 
 $('document').ready(function(){
@@ -94,7 +158,11 @@ $('document').ready(function(){
 								setTimeout(function() {
 									$('.birthday-banner').addClass('birthday-banner-come');
 									setTimeout(function() {
+										imageShow(document.getElementById('image-show-1'), shuffleArray(window.images), 0);
+										imageShow(document.getElementById('image-show-2'), shuffleArray(window.images), 0);
+										imageShow(document.getElementById('image-show-3'), shuffleArray(window.images), 0);
 										$('.cake').fadeIn('slow');
+
 										setTimeout(function() {
 											$('.fuego').fadeIn('slow');
 										}, 4000);

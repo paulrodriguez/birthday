@@ -36,15 +36,15 @@ function lightGlow(callback)
 }
 
 var songs =  [
-	"audio/LAS MAÑANITAS - Vicente Fernández.mp3",
-	"audio/Las Mañanitas Mexicanas.mp3",
-	"audio/HAPPY BIRTHDAY  CON MARIACHI.mp3",
-	"audio/Feliz Cumpleaños - Felicidades - Mariachi Azteca - Letra Subtitulado en Español.mp3",
-	"audio/En Tu Dia  Mariachi Tecalitlán.mp3",
-	"audio/Cumpleaños.mp3",
-	"audio/En Tu Dia.mp3",
-	"audio/Brindo Por Tu Cumpleaños.mp3",
-	"audio/Banda Machos - Las Mañanitas.mp3"
+	"audio/las-mananitas-vicente-fernandez.mp3",
+	"audio/las-mananitas-mexicanas.mp3",
+	"audio/happy-birthday-con-mariachi.mp3",
+	"audio/feliz-cumpleanos-mariachi-azteca.mp3",
+	"audio/en-tu-dia-mariachi-tecalitlan.mp3",
+	"audio/cumpleanos.mp3",
+	"audio/en-tu-dia.mp3",
+	"audio/brindo-por-tu-cumpleanos.mp3",
+	"audio/banda-machos-las-mananitas.mp3"
 ];
 
 function playSong(songs, idx)

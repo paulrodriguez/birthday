@@ -41,25 +41,17 @@ function getRandomInt(max) {
 
 
 window.images= [
-	'1Te8GREDa2EQo8zW6_QScEweOYqDVOCCM',
-	'1Tcwif3Jn2pqeFh7ohLJsXixjGI6LQKRA',
-	'1TcelqUOpFCZr3XJzPEa4_iWmiSJb_k7B',
-	'1TYafDFEOdpj9D6l51j2EckQ3yCyP33TK',
-	'1TYRKSC1uslgFcuBGWOvIsoEv5OIiR4O9',
-	'1TlDoIqZ-UTPOp3w-EplUxv-NdhbaEYn9',
-	'1U1HNL1lhAMx-JDQnASjPTJfMF_2G3nn_',
-	'1TqzIIQB3RWhxkuKegRvPt_w9n6UMJaM-',
-	'1UeCulv6Hl-6bJ57LrtPsHoHjSDePM9er',
-	'1UJTSunzfZy17u_iKL87r_lIRQi0rc0P6',
-	'1UPT-Qi8qTg1361Xm_vv-z3423O3tpmAi',
-	'1UleVG1-D9E1enm8vJnNKtAuaIjVZSFyG',
-	'19mgxwGaA0dR88cPxMIb-BHluStyCADMp',
-	'1woF_wxzU_PrfDl5xK4qhVOE0p3YQrHU4',
-	'1F2i_dbcQ-AWBr-5edbYefU86SCFe4BW8',
-	'18qU_KqITWelcn6pJNXrU5eeYOxlMhPkW',
-	'1xnEz19H3fSpUou0cjFxmlc4-_dTcueK1',
-	'1m9s9Pqp2Y4nL1O1OcgV1evtzkbps7fj0',
-	'1-6VcJaejHnbDVZPQ9Sg1kbs6UPA9DXUF'
+	'/images/slideshow/IMG_20230929_175552961.jpg',
+	'/images/slideshow/P1000032.JPG',
+	'/images/slideshow/P1000140.JPG',
+	'/images/slideshow/P1000181.JPG',
+	'/images/slideshow/P1000661.JPG',
+	'/images/slideshow/P1011133.JPG',
+	'/images/slideshow/P1011139.JPG',
+	'/images/slideshow/P1011149.JPG',
+	'/images/slideshow/P1011150.JPG',
+	'/images/slideshow/P1011169.JPG',
+	'/images/slideshow/P1011181.JPG',
 ];
 
 var songs =  [
@@ -112,7 +104,7 @@ function imageShow(element, images, index) {
 
 	var currImg = element.src;
 
-	var newImg = 'https://drive.google.com/uc?export=view&id=' + images[index];
+	var newImg = images[index];
 
 	element.src = newImg;
 
